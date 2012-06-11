@@ -283,12 +283,12 @@ void	console_cursor (int state);
 #define VIDEO_LOGO_LUT_OFFSET	LINUX_LOGO_LUT_OFFSET
 #define VIDEO_LOGO_COLORS	LINUX_LOGO_COLORS
 #endif	/* CONFIG_VIDEO_BMP_LOGO */
-//#define VIDEO_INFO_X		(VIDEO_LOGO_WIDTH)  //mask by xgc
-//#define VIDEO_INFO_Y		(VIDEO_FONT_HEIGHT/2)  //mask by xgc
-/*xiangguangchao add begin*/
+//#define VIDEO_INFO_X		(VIDEO_LOGO_WIDTH)  //mask by mickeyos
+//#define VIDEO_INFO_Y		(VIDEO_FONT_HEIGHT/2)  //mask by mickeyos
+/*mickeyos add begin*/
 #define VIDEO_INFO_X		(0)
 #define VIDEO_INFO_Y		(VIDEO_LOGO_HEIGHT)
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 #else	/* CONFIG_VIDEO_LOGO */
 #define VIDEO_LOGO_WIDTH	0
 #define VIDEO_LOGO_HEIGHT	0

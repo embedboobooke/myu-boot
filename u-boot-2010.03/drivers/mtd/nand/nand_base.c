@@ -2065,14 +2065,14 @@ static int nand_do_write_ops(struct mtd_info *mtd, loff_t to,
 			break;
 
 		column = 0;
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(ENABLE_CMD_NAND_YAFFS)
 	if(mtd->rw_oob == 1) {
 		oob = oob + bytes;
 		buf = buf + ops->ooblen; 
 	}
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 		buf += bytes;
 		realpage++;
 
@@ -2106,7 +2106,7 @@ static int nand_write(struct mtd_info *mtd, loff_t to, size_t len,
 {
 	struct nand_chip *chip = mtd->priv;
 	int ret;
-/*xiangguangchao add begin*/	
+/*mickeyos add begin*/	
 #if defined(ENABLE_CMD_NAND_YAFFS)
 	int oldopsmode = 0;
 	if(mtd->rw_oob != 1) {
@@ -2147,7 +2147,7 @@ static int nand_write(struct mtd_info *mtd, loff_t to, size_t len,
 	}
 #endif
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	/* Do not allow reads past end of device */
 	if ((to + len) > mtd->size)
 		return -EINVAL;
@@ -2158,8 +2158,8 @@ static int nand_write(struct mtd_info *mtd, loff_t to, size_t len,
 
 	chip->ops.len = len;
 	chip->ops.datbuf = (uint8_t *)buf;
-//	chip->ops.oobbuf = NULL;  //mask by xgc
-/*xiangguangchao add begin*/
+//	chip->ops.oobbuf = NULL;  //mask by mickeyos
+/*mickeyos add begin*/
 #if 0
 #if defined(ENABLE_CMD_NAND_YAFFS)
 	if(mtd->rw_oob!=1)	{
@@ -2174,17 +2174,17 @@ static int nand_write(struct mtd_info *mtd, loff_t to, size_t len,
 	chip->ops.oobbuf = NULL;
 #endif
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	ret = nand_do_write_ops(mtd, to, &chip->ops);
 
 	*retlen = chip->ops.retlen;
 
 	nand_release_device(mtd);
-/*xiangguangchao add begin*/	
+/*mickeyos add begin*/	
 #if defined(ENABLE_CMD_NAND_YAFFS)
 	chip->ops.mode = oldopsmode;
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	return ret;
 }
 

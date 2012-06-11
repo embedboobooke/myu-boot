@@ -87,11 +87,11 @@ _bss_start:
 .globl _bss_end
 _bss_end:
 	.word _end
-/*xiangguangchao add begin*/	
+/*mickeyos add begin*/	
 .globl bBootFrmNORFlash
 bBootFrmNORFlash:
 	.word 0
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 
 #ifdef CONFIG_USE_IRQ
 /* IRQ stack memory (calculated at run-time) */
@@ -149,13 +149,13 @@ copyex:
 #  define INTSUBMSK	0x4A00001C
 #  define CLKDIVN	0x4C000014	/* clock divisor register */
 # endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #define CLK_CTL_BASE	0x4C000000
 #define MDIV_405	0x7f << 12
 #define PSDIV_405	0x21
 #define MDIV_200	0xa1 << 12
 #define PSDIV_200	0x31
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 
 
 	ldr	r0, =pWTCON
@@ -169,12 +169,12 @@ copyex:
 	ldr	r0, =INTMSK
 	str	r1, [r0]
 # if defined(CONFIG_S3C2410)
-	ldr	r1, =0x7ff    /*modify by xgc, old value is 0x3ff*/
+	ldr	r1, =0x7ff    /*modify by mickeyos, old value is 0x3ff*/
 	ldr	r0, =INTSUBMSK
 	str	r1, [r0]
 # endif
 
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(CONFIG_S3C2440)
 	ldr	r1, =0x7fff	
 	ldr	r0, =INTSUBMSK
@@ -199,14 +199,14 @@ copyex:
 	str	r2, [r1, #0x04]
 
 #else
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	/* FCLK:HCLK:PCLK = 1:2:4 */
 	/* default FCLK is 120 MHz ! */
 	ldr	r0, =CLKDIVN
 	mov	r1, #3
 	str	r1, [r0]
 
-/*xiangguangchao add begin*/	
+/*mickeyos add begin*/	
 	mrc	p15, 0, r1, c1, c0, 0	
 	orr	r1, r1, #0xc0000000	
 	mcr	p15, 0, r1, c1, c0, 0
@@ -217,7 +217,7 @@ copyex:
 	add	r2, r2, #PSDIV_200	
 	str	r2, [r1, #0x04]
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 #endif	/* CONFIG_S3C24X0 */
 
 	/*
@@ -227,7 +227,7 @@ copyex:
 #ifndef CONFIG_SKIP_LOWLEVEL_INIT
 	bl	cpu_init_crit
 #endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 /***************** CHECK_CODE_POSITION ******************************************/
 	adr	r0, _start		/* r0 <- current position of code   */
 	ldr	r1, _TEXT_BASE		/* test if we run from flash or RAM */
@@ -427,7 +427,7 @@ SetBootFlag:
 	mov r1, #1
 	str r1, [r0]
 /***************** NOR_BOOT *************************************************/
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	/* Set up the stack						    */
 stack_setup:
 	ldr	r0, _TEXT_BASE		/* upper 128 KiB: relocated uboot   */
@@ -450,12 +450,12 @@ clbss_l:str	r2, [r0]		/* clear loop...                    */
 
 	ldr	pc, _start_armboot
 _start_armboot:	.word start_armboot
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #define STACK_BASE 0x33f00000
 #define STACK_SIZE 0x10000
 	.align	2
 DW_STACK_START:	.word	STACK_BASE+STACK_SIZE-4 
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 /*
  *************************************************************************
  *

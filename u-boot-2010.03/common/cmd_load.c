@@ -34,11 +34,11 @@
 DECLARE_GLOBAL_DATA_PTR;
 
 #if defined(CONFIG_CMD_LOADB)
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(ENABLE_CMD_LOADB_X)
 static ulong load_serial_xmodem (ulong offset);
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 static ulong load_serial_ymodem (ulong offset);
 #endif
 
@@ -480,8 +480,8 @@ int do_load_serial_bin (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 		}
 	}
 	
-	//if (strcmp(argv[0],"loady")==0) {  //mask by xgc
-/*xiangguangchao add begin*/
+	//if (strcmp(argv[0],"loady")==0) {  //mask by mickeyos
+/*mickeyos add begin*/
 #if defined(ENABLE_CMD_LOADB_X)
 	if (strcmp(argv[0],"loadx")==0) {
 		printf ("## Ready for binary (xmodem) download "
@@ -495,7 +495,7 @@ int do_load_serial_bin (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 #else
  	if (strcmp(argv[0],"loady")==0) {
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 		printf ("## Ready for binary (ymodem) download "
 			"to 0x%08lX at %d bps...\n",
 			offset,
@@ -983,7 +983,7 @@ static int getcxmodem(void) {
 		return (getc());
 	return -1;
 }
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(ENABLE_CMD_LOADB_X)
 static ulong load_serial_xmodem (ulong offset)
 {
@@ -1041,7 +1041,7 @@ static ulong load_serial_xmodem (ulong offset)
 	return offset;
 }
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 static ulong load_serial_ymodem (ulong offset)
 {
 	int size;
@@ -1156,7 +1156,7 @@ U_BOOT_CMD(
 	"    - load binary file over serial line"
 	" with offset 'off' and baudrate 'baud'"
 );
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(ENABLE_CMD_LOADB_X)
 U_BOOT_CMD(
 	loadx, 3, 0,    do_load_serial_bin,
@@ -1166,7 +1166,7 @@ U_BOOT_CMD(
 	" with offset 'off' and baudrate 'baud'"
 );
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 U_BOOT_CMD(
 	loady, 3, 0,	do_load_serial_bin,
 	"load binary file over serial line (ymodem mode)",

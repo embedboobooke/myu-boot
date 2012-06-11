@@ -33,7 +33,7 @@
 
 #include <asm/arch/s3c24x0_cpu.h>
 #include <asm/proc-armv/ptrace.h>
-#include <asm/io.h>  //add by xgc
+#include <asm/io.h>  //add by mickeyos
 
 void do_irq (struct pt_regs *pt_regs)
 {
@@ -41,9 +41,9 @@ void do_irq (struct pt_regs *pt_regs)
 	u_int32_t intpnd = readl(&irq->INTPND);
 
 }
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 int arch_interrupt_init (void)
 {
 	return 0;
 }
-/*xiangguangchao add end*/
+/*mickeyos add end*/

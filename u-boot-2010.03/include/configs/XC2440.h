@@ -111,7 +111,7 @@
 #define CONFIG_CMD_PING
 #define CONFIG_CMD_MTDPARTS
 #define CONFIG_CMD_JFFS2
-#define CONFIG_CMD_MENU  //add by xgc
+#define CONFIG_CMD_MENU  //add by mickeyos
 
 #define CONFIG_BOOTDELAY	3
 

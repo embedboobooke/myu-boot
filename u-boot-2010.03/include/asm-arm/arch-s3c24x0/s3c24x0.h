@@ -78,7 +78,7 @@ struct s3c24x0_interrupt {
 	u32	PRIORITY;
 	u32	INTPND;
 	u32	INTOFFSET;
-#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by xgc
+#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by mickeyos
 	u32	SUBSRCPND;
 	u32	INTSUBMSK;
 #endif
@@ -88,11 +88,11 @@ struct s3c24x0_interrupt {
 /* DMAS (see manual chapter 8) */
 struct s3c24x0_dma {
 	u32	DISRC;
-#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by xgc
+#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by mickeyos
 	u32	DISRCC;
 #endif
 	u32	DIDST;
-#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by xgc
+#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by mickeyos
 	u32	DIDSTC;
 #endif
 	u32	DCON;
@@ -103,7 +103,7 @@ struct s3c24x0_dma {
 #ifdef CONFIG_S3C2400
 	u32	res[1];
 #endif
-#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by xgc
+#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by mickeyos
 	u32	res[7];
 #endif
 };
@@ -122,11 +122,11 @@ struct s3c24x0_clock_power {
 	u32	CLKCON;
 	u32	CLKSLOW;
 	u32	CLKDIVN;
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined (CONFIG_S3C2440)
 	u32 CAMDIVN;
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 };
 
 
@@ -146,7 +146,7 @@ struct s3c24x0_lcd {
 	u32	res[8];
 	u32	DITHMODE;
 	u32	TPAL;
-#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by xgc
+#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440) //modify by mickeyos
 	u32	LCDINTPND;
 	u32	LCDSRCPND;
 	u32	LCDINTMSK;
@@ -154,7 +154,7 @@ struct s3c24x0_lcd {
 #endif
 };
 
-#if defined(CONFIG_S3C2410)  //add by xgc
+#if defined(CONFIG_S3C2410)  //add by mickeyos
 /* NAND FLASH (see S3C2410 manual chapter 6) */
 struct s3c2410_nand {
 	u32	NFCONF;
@@ -164,8 +164,8 @@ struct s3c2410_nand {
 	u32	NFSTAT;
 	u32	NFECC;
 };
-#endif  //add by xgc
-/*xiangguangchao add begin*/
+#endif  //add by mickeyos
+/*mickeyos add begin*/
 #if defined (CONFIG_S3C2440)
 /* NAND FLASH (see S3C2440 manual chapter 6) */
 struct s3c2410_nand {
@@ -187,7 +187,7 @@ struct s3c2410_nand {
 	u32	NFEBLK;
 };
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 /* UART (see manual chapter 11) */
 struct s3c24x0_uart {
 	u32	ULCON;
@@ -325,13 +325,13 @@ struct s3c24x0_usb_device {
 	u8	INDEX_REG;
 	u8	res9[7];
 	u8	MAXP_REG;
-	u8	res10[3];  //modify by xgc
+	u8	res10[3];  //modify by mickeyos
 	u8	EP0_CSR_IN_CSR1_REG;
 	u8	res11[3];
 	u8	IN_CSR2_REG;
-	u8	res12[7];  //modify by xgc
+	u8	res12[7];  //modify by mickeyos
 	u8	OUT_CSR1_REG;
-	u8	res13[3];  //modify by xgc
+	u8	res13[3];  //modify by mickeyos
 	u8	OUT_CSR2_REG;
 	u8	res14[3];
 	u8	OUT_FIFO_CNT1_REG;
@@ -339,9 +339,9 @@ struct s3c24x0_usb_device {
 	u8	OUT_FIFO_CNT2_REG;
 	u8	res16[3];
 #endif /*  __BIG_ENDIAN */
-//	struct s3c24x0_usb_dev_fifos	fifo[5];  //mask by xgc
-//	struct s3c24x0_usb_dev_dmas	dma[5];       //mask by xgc
-/*xiangguangchao add begin*/
+//	struct s3c24x0_usb_dev_fifos	fifo[5];  //mask by mickeyos
+//	struct s3c24x0_usb_dev_dmas	dma[5];       //mask by mickeyos
+/*mickeyos add begin*/
 	u32	res17[8];
  	struct s3c24x0_usb_dev_fifos	fifo[5];
 	u32	res18[11];
@@ -350,7 +350,7 @@ struct s3c24x0_usb_device {
 	u8	res19[16];
 	struct s3c24x0_usb_dev_dmas	ep3;
 	struct s3c24x0_usb_dev_dmas	ep4;
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 };
 
 
@@ -434,7 +434,7 @@ struct s3c24x0_gpio {
 	u32	MISCCR;
 	u32	EXTINT;
 #endif
-#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440)  //modify by xgc
+#if defined(CONFIG_S3C2410) || defined (CONFIG_S3C2440)  //modify by mickeyos
 	u32	GPACON;
 	u32	GPADAT;
 	u32	res1[2];

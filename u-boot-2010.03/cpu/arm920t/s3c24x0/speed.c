@@ -63,13 +63,13 @@ static ulong get_PLLCLK(int pllreg)
 	m = ((r & 0xFF000) >> 12) + 8;
 	p = ((r & 0x003F0) >> 4) + 2;
 	s = r & 0x3;
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(CONFIG_S3C2440)
 	if (pllreg == MPLL)
 	return ((CONFIG_SYS_CLK_FREQ * m * 2) /(p << s));
 	else if (pllreg == UPLL)
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	return (CONFIG_SYS_CLK_FREQ * m) / (p << s);
 }
 
@@ -84,8 +84,8 @@ ulong get_HCLK(void)
 {
 	struct s3c24x0_clock_power *clk_power = s3c24x0_get_base_clock_power();
 
-//	return (readl(&clk_power->CLKDIVN) & 2) ? get_FCLK() / 2 : get_FCLK();  //mask by xgc
-/*xiangguangchao add begin*/
+//	return (readl(&clk_power->CLKDIVN) & 2) ? get_FCLK() / 2 : get_FCLK();  //mask by mickeyos
+/*mickeyos add begin*/
 #if defined(CONFIG_S3C2440)
 	if (readl(&clk_power->CLKDIVN) & 0x6) 
 	{
@@ -99,7 +99,7 @@ ulong get_HCLK(void)
 #else
 	return((readl(&clk_power->CLKDIVN) & 0x2) ? get_FCLK()/2 : get_FCLK());
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 }
 
 /* return PCLK frequency */

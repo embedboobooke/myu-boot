@@ -22,12 +22,12 @@
  */
 
 
-//#ifndef CONFIG_SYS_DEFAULT_VIDEO_MODE   //mask by xgc
-//#define CONFIG_SYS_DEFAULT_VIDEO_MODE	0x301  //mask by xgc
-/*xiangguangchao add begin*/
+//#ifndef CONFIG_SYS_DEFAULT_VIDEO_MODE   //mask by mickeyos
+//#define CONFIG_SYS_DEFAULT_VIDEO_MODE	0x301  //mask by mickeyos
+/*mickeyos add begin*/
 #ifndef CFG_SYS_DEFAULT_VIDEO_MODE
 #define CFG_SYS_DEFAULT_VIDEO_MODE	0x211
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 #endif
 
 /* Some mode definitions */
@@ -82,12 +82,12 @@ struct ctfb_vesa_modes {
 #define RES_MODE_960_720	3
 #define RES_MODE_1152x864	4
 #define RES_MODE_1280x1024	5
-//#define RES_MODES_COUNT		6  //mask by xgc
-#define RES_MODE_320x240	6  //add by xgc
+//#define RES_MODES_COUNT		6  //mask by mickeyos
+#define RES_MODE_320x240	6  //add by mickeyos
 
-//#define VESA_MODES_COUNT 19  //mask by xgc
-#define RES_MODES_COUNT		7  //mask by xgc
-#define VESA_MODES_COUNT 20    //mask by xgc
+//#define VESA_MODES_COUNT 19  //mask by mickeyos
+#define RES_MODES_COUNT		7  //mask by mickeyos
+#define VESA_MODES_COUNT 20    //mask by mickeyos
 
 extern const struct ctfb_vesa_modes vesa_modes[];
 extern const struct ctfb_res_modes res_mode_init[];

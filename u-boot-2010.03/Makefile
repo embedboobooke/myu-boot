@@ -241,9 +241,9 @@ LIBS += drivers/usb/gadget/libusb_gadget.a
 LIBS += drivers/usb/host/libusb_host.a
 LIBS += drivers/usb/musb/libusb_musb.a
 LIBS += drivers/usb/phy/libusb_phy.a
-LIBS += drivers/usb/slave/libusb_slave.a   #add by xgc
+LIBS += drivers/usb/slave/libusb_slave.a   #add by mickeyos
 LIBS += drivers/video/libvideo.a
-#LIBS += drivers/watchdog/libwatchdog.a    #mask by xgc
+#LIBS += drivers/watchdog/libwatchdog.a    #mask by mickeyos
 LIBS += common/libcommon.a
 LIBS += libfdt/libfdt.a
 LIBS += api/libapi.a
@@ -3045,10 +3045,10 @@ smdk2400_config	:	unconfig
 
 smdk2410_config	:	unconfig
 	@$(MKCONFIG) $(@:_config=) arm arm920t smdk2410 samsung s3c24x0
-#xiangguangchao add begin	
+#mickeyos add begin	
 XC2440_config :   unconfig
 	@$(MKCONFIG) $(@:_config=) arm arm920t XC2440 NULL s3c24x0
-#xiangguangchao add end
+#mickeyos add end
 spear300_config \
 spear310_config \
 spear320_config :	unconfig

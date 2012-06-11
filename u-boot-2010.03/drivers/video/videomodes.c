@@ -95,7 +95,7 @@ const struct ctfb_vesa_modes vesa_modes[VESA_MODES_COUNT] = {
 	{0x319, RES_MODE_1280x1024, 15},
 	{0x31A, RES_MODE_1280x1024, 16},
 	{0x31B, RES_MODE_1280x1024, 24},
-	{0x211, RES_MODE_320x240, 16},  //add by xgc
+	{0x211, RES_MODE_320x240, 16},  //add by mickeyos
 };
 const struct ctfb_res_modes res_mode_init[RES_MODES_COUNT] = {
 	/* x	 y pixclk   le	ri  up	lo   hs vs  s  vmode */
@@ -105,7 +105,7 @@ const struct ctfb_res_modes res_mode_init[RES_MODES_COUNT] = {
 	{960, 720, 13100, 160, 40, 32, 8, 80, 4, 0, FB_VMODE_NONINTERLACED},
 	{1152, 864, 12004, 200, 64, 32, 16, 80, 4, 0, FB_VMODE_NONINTERLACED},
 	{1280, 1024, 9090, 200, 48, 26, 1, 184, 3, 0, FB_VMODE_NONINTERLACED},
-	{320, 240, 100000, 19, 24, 7, 5, 44, 15, 0, FB_VMODE_NONINTERLACED},  //add by xgc
+	{320, 240, 100000, 19, 24, 7, 5, 44, 15, 0, FB_VMODE_NONINTERLACED},  //add by mickeyos
 };
 
 /************************************************************************

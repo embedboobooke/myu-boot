@@ -34880,9 +34880,9 @@ extern unsigned int __machine_arch_type;
 # else
 #  define machine_arch_type	MACH_TYPE_XGCP10
 # endif
-# define machine_is_adx_xgcp10()	(machine_arch_type == MACH_TYPE_XGCP10)
+# define machine_is_adx_mickeyosp10()	(machine_arch_type == MACH_TYPE_XGCP10)
 #else
-# define machine_is_adx_xgcp10()	(0)
+# define machine_is_adx_mickeyosp10()	(0)
 #endif
 
 #ifdef CONFIG_MACH_MCGWUMTS2A

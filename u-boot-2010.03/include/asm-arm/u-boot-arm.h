@@ -35,7 +35,7 @@ extern ulong _bss_start;	/* code + data end == BSS start */
 extern ulong _bss_end;		/* BSS end */
 extern ulong IRQ_STACK_START;	/* top of IRQ stack */
 extern ulong FIQ_STACK_START;	/* top of FIQ stack */
-extern ulong bBootFrmNORFlash;  //add by xgc
+extern ulong bBootFrmNORFlash;  //add by mickeyos
 
 /* cpu/.../cpu.c */
 int	cpu_init(void);

@@ -52,7 +52,7 @@ void *video_hw_init (void)
 //    unsigned char videoout;
  
     /* Search for video chip */
-//    printf("Video: ");   //by xgc
+//    printf("Video: ");   //by mickeyos
 
     tmp = 0;
  
@@ -105,7 +105,7 @@ void *video_hw_init (void)
          sprintf (pGD->modeIdent, "%dx%dx%d %ldkHz %ldHz", res_mode->xres,
                   res_mode->yres, bits_per_pixel, (hsynch / 1000),
                   (vsynch / 1000));
-    //     printf ("%s\n", pGD->modeIdent);  //by xgc
+    //     printf ("%s\n", pGD->modeIdent);  //by mickeyos
          pGD->winSizeX = res_mode->xres;
          pGD->winSizeY = res_mode->yres;
          pGD->plnSizeX = res_mode->xres;

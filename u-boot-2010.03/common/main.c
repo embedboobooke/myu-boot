@@ -90,7 +90,7 @@ int do_mdm_init = 0;
 extern void mdm_init(void); /* defined in board.c */
 #endif
 
-static void show_myinfo(void);  //add by xgc
+static void show_myinfo(void);  //add by mickeyos
 
 /***************************************************************************
  * Watch for 'delay' seconds for autoboot stop or autoboot delay string.
@@ -216,7 +216,7 @@ static int menukey = 0;
 static __inline__ int abortboot(int bootdelay)
 {
 	int abort = 0;
-	show_myinfo();  //add by xgc
+	show_myinfo();  //add by mickeyos
 #ifdef CONFIG_MENUPROMPT
 	printf(CONFIG_MENUPROMPT);
 #else
@@ -347,7 +347,7 @@ void main_loop (void)
 #ifdef CONFIG_AUTO_COMPLETE
 	install_auto_complete();
 #endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #ifdef CONFIG_CMD_MTDPARTS
 	extern int mtdparts_init(void);
 	if (!getenv("mtdparts"))
@@ -359,7 +359,7 @@ void main_loop (void)
 		mtdparts_init();
 	}
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 #ifdef CONFIG_PREBOOT
 	if ((p = getenv ("preboot")) != NULL) {
 #ifdef CONFIG_AUTOBOOT_KEYED
@@ -415,7 +415,7 @@ void main_loop (void)
 #ifdef CONFIG_AUTOBOOT_KEYED
 		int prev = disable_ctrlc(1);	/* disable Control C checking */
 #endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #ifdef CONFIG_CMD_MENU
 	if (bBootFrmNORFlash == 1)	
 	{
@@ -440,7 +440,7 @@ void main_loop (void)
                                      FLAG_EXIT_FROM_LOOP);
 #endif
 #endif	
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 
 //add by mickeyos
 #if 0
@@ -479,11 +479,11 @@ void main_loop (void)
 	    video_banner();
 	}
 #endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #ifdef CONFIG_CMD_MENU
 	run_command("menu", 0);
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 
 	/*
 	 * Main Loop for Monitor Command Processing
@@ -1495,7 +1495,7 @@ int do_run (cmd_tbl_t * cmdtp, int flag, int argc, char *argv[])
 	return 0;
 }
 #endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 void show_myinfo()
 {
 	printf("***************************************************\n");     
@@ -1509,4 +1509,4 @@ void show_myinfo()
 	printf("***            Æô¶¯·½Ê½:NandFlash               ***\n");
 	printf("***************************************************\n");
 }
-/*xiangguangchao add end*/
+/*mickeyos add end*/

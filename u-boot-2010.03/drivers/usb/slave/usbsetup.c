@@ -92,7 +92,7 @@ void Ep0Handler(void)
 	static int ep0SubState;
 	U8 ep0_csr;
 	struct s3c24x0_usb_device * const usbdevregs	= s3c24x0_get_base_usb_device();
-//	printf("enter EP0Handler!\n");  //xgc for debug
+//	printf("enter EP0Handler!\n");  //mickeyos for debug
 	udelay(500);
 
 	writeb(0, &usbdevregs->INDEX_REG);	
@@ -219,7 +219,7 @@ void Ep0Handler(void)
             ConfigSet.ConfigurationValue=descSetup.bValueL;
             CLR_EP0_OUTPKTRDY_DATAEND(); //Because of no data control transfers.
             ep0State=EP0_STATE_INIT;
-//			printf("enter set_config!\n");	//xgc for debug
+//			printf("enter set_config!\n");	//mickeyos for debug
 
             isUsbdSetConfiguration=1; 
             break;

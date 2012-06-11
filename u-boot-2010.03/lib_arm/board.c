@@ -73,11 +73,11 @@ extern void dataflash_print_info(void);
 #ifndef CONFIG_IDENT_STRING
 #define CONFIG_IDENT_STRING ""
 #endif
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #ifdef CONFIG_USB_DEVICE
 extern void usb_init_slave(void);
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 const char version_string[] =
 	U_BOOT_VERSION" (" U_BOOT_DATE " - " U_BOOT_TIME ")"CONFIG_IDENT_STRING;
 
@@ -140,7 +140,7 @@ static int init_baudrate (void)
 static int display_banner (void)
 {
 	printf ("\n\n%s\n\n", version_string);
-	printf ("############Board Info############\n");  //add by xgc
+	printf ("############Board Info############\n");  //add by mickeyos
 	debug ("U-Boot code: %08lX -> %08lX  BSS: -> %08lX\n",
 	       _armboot_start, _bss_start, _bss_end);
 #ifdef CONFIG_MODEM_SUPPORT
@@ -389,11 +389,11 @@ void start_armboot (void)
 
 	/* enable exceptions */
 	enable_interrupts ();
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #ifdef CONFIG_USB_DEVICE
 	usb_init_slave();
 #endif	
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	/* Perform network card initialisation if necessary */
 #ifdef CONFIG_DRIVER_TI_EMAC
 	/* XXX: this needs to be moved to board init */
@@ -446,7 +446,7 @@ extern void davinci_eth_set_mac_addr (const u_int8_t *addr);
 	reset_phy();
 #endif
 #endif
-	printf ("##################################\n\n");  //add by xgc
+	printf ("##################################\n\n");  //add by mickeyos
 	/* main_loop() can return to retry autoboot, if so just run it again. */
 	for (;;) {
 		main_loop ();

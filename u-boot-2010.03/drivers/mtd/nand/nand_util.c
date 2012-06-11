@@ -476,7 +476,7 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 	size_t left_to_write = *length;
 	size_t len_incl_bad;
 	u_char *p_buffer = buffer;
-/*xiangguangchao add begin*/	
+/*mickeyos add begin*/	
 #if defined(ENABLE_CMD_NAND_YAFFS)
 	
 	if(nand->rw_oob==1)	{
@@ -496,7 +496,7 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 //		nand->skipfirstblock=1;
 	}
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	/* Reject writes, which are not page aligned */
 	if ((offset & (nand->writesize - 1)) != 0 ||
 	    (*length & (nand->writesize - 1)) != 0) {
@@ -511,7 +511,7 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 		return -EINVAL;
 	}
 
-#if !defined(ENABLE_CMD_NAND_YAFFS)  //add by xgc
+#if !defined(ENABLE_CMD_NAND_YAFFS)  //add by mickeyos
 	if (len_incl_bad == *length) {
 		rval = nand_write (nand, offset, length, buffer);
 		if (rval != 0)
@@ -520,7 +520,7 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 
 		return rval;
 	}
-#endif  //add by xgc
+#endif  //add by mickeyos
 
 	while (left_to_write > 0) {
 		size_t block_offset = offset & (nand->erasesize - 1);
@@ -534,7 +534,7 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 			offset += nand->erasesize - block_offset;
 			continue;
 		}
-/*xiangguangchao add begin*/		
+/*mickeyos add begin*/		
 #if defined(ENABLE_CMD_NAND_YAFFS)
 		if(nand->skipfirstblk==1)	{		
 			nand->skipfirstblk=0;
@@ -544,13 +544,13 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 			continue;
 		}
 #endif
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 		if (left_to_write < (nand->erasesize - block_offset))
 			write_size = left_to_write;
 		else
 			write_size = nand->erasesize - block_offset;
 		
-		printf("\rWriting at 0x%08lx -- ",offset);  //add by xgc
+		printf("\rWriting at 0x%08lx -- ",offset);  //add by mickeyos
 
 		rval = nand_write (nand, offset, &write_size, p_buffer);
 		if (rval != 0) {
@@ -561,9 +561,9 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
 		}
 
  		left_to_write -= write_size;
-		printf("%d%% is complete.",100-(left_to_write/(*length/100))); //add by xgc
+		printf("%d%% is complete.",100-(left_to_write/(*length/100))); //add by mickeyos
  		offset        += write_size;
-/*xiangguangchao add begin*/
+/*mickeyos add begin*/
 #if defined(ENABLE_CMD_NAND_YAFFS)
 		if(nand->rw_oob==1)	{
 			p_buffer += write_size+(write_size/nand->writesize*nand->oobsize);
@@ -574,7 +574,7 @@ int nand_write_skip_bad(nand_info_t *nand, ulong offset, size_t *length,
  		p_buffer      += write_size;
 #endif
 	}
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	return 0;
 }
 

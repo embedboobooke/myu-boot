@@ -44,7 +44,7 @@ enum {
    specific to any particular block. */
 struct erase_info {
 	struct mtd_info *mtd;
-	ulong addr;   //modify by xgc
+	ulong addr;   //modify by mickeyos
 	uint64_t len;
 	uint64_t fail_addr;
 	u_long time;
@@ -129,10 +129,10 @@ struct mtd_info {
 	 * 1 or larger.
 	 */
 	u_int32_t writesize;
-/*xiangguangchao add begin*/	
+/*mickeyos add begin*/	
 	u_char rw_oob;
 	u_char skipfirstblk;
-/*xiangguangchao add end*/
+/*mickeyos add end*/
 	u_int32_t oobsize;   /* Amount of OOB data per block (e.g. 16) */
 	u_int32_t oobavail;  /* Available OOB bytes per block */
 

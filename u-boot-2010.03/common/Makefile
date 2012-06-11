@@ -165,8 +165,8 @@ COBJS-$(CONFIG_LYNXKDI) += lynxkdi.o
 COBJS-$(CONFIG_MODEM_SUPPORT) += modem.o
 COBJS-$(CONFIG_UPDATE_TFTP) += update.o
 COBJS-$(CONFIG_USB_KEYBOARD) += usb_kbd.o
-COBJS-$(CONFIG_CMD_MENU) += cmd_menu.o        #add by xgc
-COBJS-$(CONFIG_USB_DEVICE) += cmd_usbslave.o  #add by xgc
+COBJS-$(CONFIG_CMD_MENU) += cmd_menu.o        #add by mickeyos
+COBJS-$(CONFIG_USB_DEVICE) += cmd_usbslave.o  #add by mickeyos
 
 COBJS	:= $(sort $(COBJS-y))
 SRCS	:= $(AOBJS:.o=.S) $(COBJS:.o=.c)
