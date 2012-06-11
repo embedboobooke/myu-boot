@@ -40,10 +40,10 @@ SECTIONS
 	.text :
 	{
 		cpu/arm920t/start.o	(.text)
-		/*xiangguangchao add begin*/
-		board/XC2440/lowlevel_init.o	(.text)
-		board/XC2440/nand_read.o	(.text)
-		/*xiangguangchao add end*/
+		/*mickeyos add begin*/
+		board/Mickey2440/lowlevel_init.o	(.text)
+		board/Mickey2440/nand_read.o	(.text)
+		/*mickeyos add end*/
 		*(.text)
 	}
 

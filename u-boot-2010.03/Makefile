@@ -3046,8 +3046,8 @@ smdk2400_config	:	unconfig
 smdk2410_config	:	unconfig
 	@$(MKCONFIG) $(@:_config=) arm arm920t smdk2410 samsung s3c24x0
 #mickeyos add begin	
-XC2440_config :   unconfig
-	@$(MKCONFIG) $(@:_config=) arm arm920t XC2440 NULL s3c24x0
+mickey2440_config :   unconfig
+	@$(MKCONFIG) $(@:_config=) arm arm920t Mickey2440 NULL s3c24x0
 #mickeyos add end
 spear300_config \
 spear310_config \
