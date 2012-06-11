@@ -123,7 +123,7 @@ void usb_init_slave(void)
 	UsbdMain(); 
 	udelay(100000);
     
-	writel((readl(&gpioregs->GPGDAT) | (1<<12)), &gpioregs->GPGDAT); 
+	writel((readl(&gpioregs->GPCDAT) | (1<<5)), &gpioregs->GPCDAT); 
  /* enable USB Device, thisway.diy */
 #if USBDMA
 	mode="DMA";
@@ -313,9 +313,9 @@ void Clk1_Disable(void)
 
 void udc_disconnect (void)
 {
-	return 0;
-//	struct s3c24x0_gpio * const  gpioregs = s3c24x0_get_base_gpio();
-//	writel((readl(&gpioregs->GPGDAT) & ~(1<<12)), &gpioregs->GPGDAT); 
+	//return 0;
+	struct s3c24x0_gpio * const  gpioregs = s3c24x0_get_base_gpio();
+	writel((readl(&gpioregs->GPCDAT) & ~(1<<5)), &gpioregs->GPCDAT); 
 //	UDCDBG ("disconnect, disable Pullup");
 //	printf("disconnect, disable Pullup");
 }
